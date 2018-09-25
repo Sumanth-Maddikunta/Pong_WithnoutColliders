@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -39,7 +39,7 @@ public class Test_001 : MonoBehaviour
         paddleLength = rPaddle.localScale.y / 2;
 
 
-        
+
     }
 
     // Update is called once per frame
@@ -52,6 +52,7 @@ public class Test_001 : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Space))
         {
+            Debug.Log("Reset Ball ");
             ResetBall();
         }
 
@@ -97,16 +98,18 @@ public class Test_001 : MonoBehaviour
     }
     void CheckBallCollisionsWithRWall()
     {
-        if(ball.position.x+radius>horizontalExtent)
+        if (ball.position.x + radius > horizontalExtent)
         {
+            Debug.Log("Left Scores");
             //Increment the Left player Score
             ResetBall();
         }
     }
     void CheckBallCollisionsWithLWall()
     {
-        if (ball.position.x - radius < horizontalExtent)
+        if (ball.position.x - radius < -horizontalExtent)
         {
+            Debug.Log("Right Scores");
             //Increment the Right player Score
             ResetBall();
         }
@@ -143,5 +146,5 @@ public class Test_001 : MonoBehaviour
 
     }
 
-    
+
 }
